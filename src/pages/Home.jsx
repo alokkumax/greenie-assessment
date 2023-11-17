@@ -3,12 +3,16 @@ import { IoSearch } from "react-icons/io5";
 import { UserTile } from "../components/UserTile";
 import {db} from "../../src/firebase-config"
 import {collection, getDocs} from "firebase/firestore"
+import Modal from "../components/Modal";
 
 
 
 const Home = () => {
   const [query, setQuery] = useState("")
   const [users, setUsers] = useState([]);
+  
+  const [modal, setModal] = useState(false);
+  const [selectedUser, setSelectedUser] = useState({});
 
   const getUserRef = collection(db, "users")
   useEffect(()=>{
@@ -25,15 +29,14 @@ const Home = () => {
       return users;
     }
     return (
-      users.filter(user => user.name.includes(query)) && 
-      users.filter(user => user.phone.includes(query)) &&
-      users.filter(user => user.email.includes(query))
+      users.filter(user => user.name.toUpperCase().startsWith(query.toUpperCase())) // for case sensitivity
       )
   }
-
   const filter = getFilteredItems(query, users);
 
-  const handleReport = (user) =>{
+  const handleReport = (selectedUser) =>{
+    setSelectedUser(selectedUser)
+    setModal(!modal)
     // console.log(user.target.value)
   }
 
@@ -43,7 +46,7 @@ const Home = () => {
       <div className="search__box">
         <div className="search">
           <IoSearch color="gray" />
-          <input type="text" onChange={e => setQuery(e.target.value)} placeholder="Search user" />
+          <input type="text" onChange={e => setQuery(e.target.value)} placeholder="Search username" />
         </div>
       </div>
       {/* HEAD */}
@@ -57,11 +60,18 @@ const Home = () => {
       {filter.map((user) => {
         return <UserTile 
           name={user.name} 
-          id={user.email}
           ph={user.phone}
+          email={user.email}
           handleReport={handleReport}
         />;
       })}
+      {
+        modal && 
+        <Modal 
+          selectedUser = {selectedUser}
+          modal = {()=>setModal(!modal)} 
+          />
+      }
       <br/>
     </div>
   );

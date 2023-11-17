@@ -1,17 +1,21 @@
-import { PiPizzaFill } from "react-icons/pi";
+import { RiUser3Fill } from "react-icons/ri";
+import { RiUser3Line } from "react-icons/ri";
 
-import { PiPizzaLight } from "react-icons/pi";
+import { IoIosAddCircle } from "react-icons/io";
+import { IoIosAddCircleOutline } from "react-icons/io";
+
+
 const navs = [
     {
         name : "User Details",
-        icon : <PiPizzaFill />,
-        iconOutine : <PiPizzaLight/>,
+        icon : <RiUser3Fill />,
+        iconOutine : <RiUser3Line/>,
         path : "/"
     },
     {
         name : "User Creation",
-        icon : <PiPizzaFill/>,
-        iconOutine : <PiPizzaLight/>,
+        icon : <IoIosAddCircle/>,
+        iconOutine : <IoIosAddCircleOutline/>,
         path : "/create"
 
     },

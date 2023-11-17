@@ -26,18 +26,22 @@ const Create = () => {
   }
 
   return (
-    <div className='home'>
+    <form className='home'>
       <h2>Create a user</h2>
       <div className='input__box'>
         <input onChange={((e)=> {setName(e.target.value)})} type='text' placeholder='username' required/>
         <input onChange={((e)=> {setPassword(e.target.value)})} type='password' placeholder='password' required/>
       </div>
       <div className='input__box'>
-      <input onChange={((e)=> {setEmail(e.target.value)})} type='email' placeholder='email' required/>
+      <input onChange={((e)=> {setEmail(e.target.value)})} type='email' placeholder='email' pattern=".+@example\.com" size="30"  required/>
         <input onChange={((e)=> {setPhone (e.target.value)})} type='number' placeholder='phone' required/>
       </div>
-      <button disabled={((name === "" || password ==="" || email ==="" || phone==="")? true : false)} onClick={createUser} className='btn mt-1'>Register</button>
-    </div>
+      <button type='submit'
+        onClick={createUser} className='btn mt-1'
+        >
+        Register
+        </button>
+    </form>
     )
 }
 

@@ -22,7 +22,7 @@ const Sidebar = () => {
     </div>
     <div className='footer'>
       <span>D</span>
-      <span>Copyright @Greenie</span>
+      <span>Copyright @Dashboard</span>
     </div>
       
     </div>

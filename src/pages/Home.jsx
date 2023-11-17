@@ -59,6 +59,7 @@ const Home = () => {
     
       {filter.map((user) => {
         return <UserTile 
+        key={user.id}
           name={user.name} 
           ph={user.phone}
           email={user.email}

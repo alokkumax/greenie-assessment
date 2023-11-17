@@ -10,9 +10,9 @@ const Sidebar = () => {
     <div>
       <h2 className='brand'>DASH</h2>
       <div className='navs'>
-        {navs.map(({ name,icon, iconOutine , path }) => {
+        {navs.map(({ name,icon, iconOutine , path ,id}) => {
               return (
-                  <div className={loc.pathname === path ? "navTile activeNav" : "navTile"}>
+                  <div key={id} className={loc.pathname === path ? "navTile activeNav" : "navTile"}>
                   <a href={path}>{loc.pathname === path ? icon : iconOutine}</a>
                   <a href={path}>{name}</a>
                   </div>

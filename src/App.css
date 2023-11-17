@@ -158,9 +158,12 @@
 .input__box > input {
     background-color: rgba(225, 225, 225, 0.281);
     padding: 12px;
-    width: 250px;
+    width: 300px;
     border-radius: 15px;
-    outline: 0px solid gray;
+    outline: 1px solid rgb(163, 163, 163);
+}
+.input__box > input::placeholder{
+    color: rgb(129, 129, 129);
 }
 .modal, .overlay {
     width: 100vw;
@@ -177,33 +180,102 @@
     /* overflow: hidden; */
   }
   .modal-content {
+    font-family: Montserrat;
+    font-weight: 500;
+    padding: 2rem;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    line-height: 1.4;
-    background: #f1f1f1;
+    background: #ffffff;
     border-radius: 3px;
     display: flex;
-    flex-direction: row;
-    height: 80%;
-    min-width: 730px;
-    width: 50%;
-    justify-content: space-between;
-  
+    flex-direction: column;
+    height: auto;
+    min-width: 430px;
+    width: 600px;
+    justify-content: center;
+    gap: 1rem;
   }
+.modal__username{
+    font-size: 40px;
+}
+.modal__date{
+    color: gray;
+}
+.modal__id{
+    color: gray;
+}
+.modal__row{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+}
+.modal__col{
+    display: flex;
+    flex-direction: column;
+}
+.modal__col > span{
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+
+
 @media (max-width:890px) {
     .sidebar{
         position: fixed;
         width: 100%;
-        /* top: 0%; */
-        bottom: 0%;
+        top: 0%;
         flex-direction: row;
         height: 8rem;
+        padding: 20px
+
     }
     .home{
         /* margin-left: 21rem; */
-        padding: 1rem ;
+        padding: 10rem 1rem 1rem ;
         width: 100%;
+    }
+    .footer{
+        display: none;
+    }
+    .brand{
+        /* padding: 5px; */
+    }
+    .sidebar>:first-child{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        width: 100%;
+        align-items: center;
+    }
+    .navs{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        margin-top: 0px;
+        /* width: auto; */
+    }
+    .navTile{
+        width: auto;
+        display: flex;
+        align-items: center;
+
+    }
+}
+@media (max-width:480px) {
+    .sidebar>:first-child{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 100%;
+        align-items: start;
+    }
+    .sidebar{
+        height: auto;
     }
 }

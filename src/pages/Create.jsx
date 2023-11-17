@@ -24,22 +24,23 @@ const Create = () => {
   }
 
   return (
-    <form className='home'>
+    <div className='home'>
       <h2>Create a user</h2>
       <div className='input__box'>
         <input onChange={((e)=> {setName(e.target.value)})} type='text' placeholder='username' required/>
         <input onChange={((e)=> {setPassword(e.target.value)})} type='password' placeholder='password' required/>
       </div>
       <div className='input__box'>
-      <input onChange={((e)=> {setEmail(e.target.value)})} type='email' placeholder='email' pattern=".+@example\.com" size="30"  required/>
-        <input onChange={((e)=> {setPhone (e.target.value)})} type='number' placeholder='phone' required/>
+      <input onChange={((e)=> {setEmail(e.target.value)})} type='email' placeholder='email' size="30"  required/>
+        <input onChange={((e)=> {setPhone (e.target.value)})} type='number' placeholder='phone' maxLength={10} required/>
       </div>
-      <button type='submit'
+      <button
+        disabled={(name==="" || email==="" || phone==="" || password==="")? true : false}
         onClick={createUser} className='btn mt-1'
         >
         Register
         </button>
-    </form>
+    </div>
     )
 }
 

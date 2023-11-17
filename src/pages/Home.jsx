@@ -5,8 +5,6 @@ import {db} from "../../src/firebase-config"
 import {collection, getDocs} from "firebase/firestore"
 import Modal from "../components/Modal";
 
-
-
 const Home = () => {
   const [query, setQuery] = useState("")
   const [users, setUsers] = useState([]);
@@ -53,17 +51,17 @@ const Home = () => {
 
       <div className="userTileHead">
         <span>name</span>
+        <span>phone</span>
         <span>email</span>
-        <span>PHONE</span>
       </div>
     
       {filter.map((user) => {
         return <UserTile 
-        key={user.id}
+          key={user.id}
           name={user.name} 
           ph={user.phone}
           email={user.email}
-          handleReport={handleReport}
+          handleReport={()=>handleReport(user)}
         />;
       })}
       {

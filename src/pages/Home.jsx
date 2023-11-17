@@ -20,6 +20,7 @@ const Home = () => {
   },[])
 
   const getFilteredItems = (query, users) => {
+    // search functionality with NAME , EMAIL, PHONE
     if(!query){
       return users;
     }

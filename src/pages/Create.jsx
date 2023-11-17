@@ -1,8 +1,6 @@
 import React, { useState } from 'react'
 import {db} from "../../src/firebase-config"
 import {addDoc,collection} from "firebase/firestore"
-import { toast, ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
 const Create = () => {
   //USER DETAIL
   const [ name, setName] = useState("")

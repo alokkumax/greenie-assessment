@@ -8,7 +8,7 @@ This is a user management dashboard
 ## Installation
 **1.** Fork the repo :fork_and_knife:
 
-**2.** Clone the forked repo and import in **Android Studio** 💻
+**2.** Clone the forked repo and import in **VSCODE** 💻
 ````bash
 git clone https://github.com/<your-username>/greenie-assessment.git
 ````
